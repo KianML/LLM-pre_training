@@ -1,0 +1,37 @@
+name: LLM Pre-training Pipeline
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  pretrain_llm:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+
+      - name: Fetch data
+        run: |
+          python data_acquisition.py
+          echo "Data acquisition complete."
+
+      - name: Run LLM Pre-training
+        run: |
+          python data_prep.py
+          echo "LLM pre-training started."
