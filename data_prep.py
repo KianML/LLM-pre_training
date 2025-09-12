@@ -104,8 +104,8 @@ test_set = prmpt_rspns[train_size + val_size:]
 
 # ==== Model Scalability ===========================================================
 # Change vocabulary size to adjust the scale of the model
-prmpt_vocab_size = 5000
-rspns_vocab_size = 15000
+prmpt_vocab_size = 30000
+rspns_vocab_size = 100000
 # the maximum sentence lenght in the dataset
 sentence_len = 50
 
@@ -115,15 +115,17 @@ prmpt_vec = TextVectorization(
     max_tokens=prmpt_vocab_size,
     standardize=None,
     split="whitespace",
-    output_mode="int",
-    output_sequence_length = sentence_len,
+    output_mode="tf_idf",
+    # output_mode="int", # use this when limitting the sentence_len
+    # output_sequence_length = sentence_len # use this when limitting the sentence_len
 )
 rspns_vec = TextVectorization(
     max_tokens=rspns_vocab_size,
     standardize=None,
     split="whitespace",
-    output_mode="int",
-    output_sequence_length = sentence_len + 1
+    output_mode="tf_idf",
+    # output_mode="int", # use this when limitting the sentence_len
+    # output_sequence_length = sentence_len + 1 # use this when limitting the sentence_len
 )
 
 # training the vectorizer
@@ -160,6 +162,7 @@ for src, trgt in train_dataset.take(1):
     print(f'inputs["dec_in"][0]: {src["dec_in"][0]}')
     print(f"targets.shape: {trgt.shape}")
     print(f"targets[0]: {trgt[0]}")
+
 
 
 
