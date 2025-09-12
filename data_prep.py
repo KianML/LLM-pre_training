@@ -45,7 +45,8 @@ def prmpt_rspns_split(raw_dic_lst, prmpt_key, rspns_key, is_code):
     return prmpt_rspns
 
 # The local path of stored raw datasets
-path = "C:\\Users\\kshvz\\OneDrive\\Desktop\\Codes_VSC\\LLM_pipeline\\datasets\\"
+# Change it into your local path
+path = ""
 
 # Loads the json files
 raw_pub = [json.loads(line) for line in open(path + 'PubMed.json', 'r')]
@@ -159,4 +160,5 @@ for src, trgt in train_dataset.take(1):
     print(f'inputs["dec_in"][0]: {src["dec_in"][0]}')
     print(f"targets.shape: {trgt.shape}")
     print(f"targets[0]: {trgt[0]}")
+
 
