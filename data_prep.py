@@ -5,7 +5,6 @@ import matplotlib.pyplot as plt
 import random
 import tensorflow as tf
 from tensorflow.keras.layers import TextVectorization
-from sklearn.feature_extraction.text import CountVectorizer
 
 # ======= Normalize and aggregate datasets =======================================================
 # Normalize a line of text
@@ -160,3 +159,4 @@ for src, trgt in train_dataset.take(1):
     print(f'inputs["dec_in"][0]: {src["dec_in"][0]}')
     print(f"targets.shape: {trgt.shape}")
     print(f"targets[0]: {trgt[0]}")
+
