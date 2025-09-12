@@ -31,7 +31,7 @@ jobs:
 
       - name: Fetch data
         run: |
-          python data_acquisition.py
+          python src/data_acquisition.py
           echo "Data acquisition complete."
 
       - name: Run LLM Pre-training
