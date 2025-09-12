@@ -8,4 +8,4 @@ Then execute data_prep.py for data preperation. It requires 'json', 're', 'unico
 
 It is recommended to set the variable 'n' in line 64 to a small number (e.g. 10), uncomment the block and test the execution of the code first. When runs smoothly comment the block again and run it for the complete dataset.
 
-If you need to upscale the model and improve the execution time you can lower the number of most frequent words in lines 108 and 109. You can also raise the batch size in line 144.
+The output_mode is set to 'tf-idf' till adapt() learn the document frequencies of each token in the input dataset. When scaling up the model the vocabulary size can be reduced. The sentence length also can be limited to a few words (e.g. 50) but in this case the output_mode needs to be set to 'int'. Uncomment lines 118, 119, 126 and 127.
