@@ -61,7 +61,7 @@ for elmnt in raw_web:
 # Takes the first n elements of each dataset
 # This is for testing the code. Ignore it during implementation
 """
-n = 50000
+n = 10
 raw_pub = raw_pub[:n]
 raw_web = raw_web[:n]
 raw_git = raw_git[:n]
